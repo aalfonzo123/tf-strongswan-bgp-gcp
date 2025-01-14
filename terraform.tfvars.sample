@@ -1,0 +1,7 @@
+gcp-router-asn=64514
+strongswan-router-asn=64515
+shared-secret="secret"
+region="us-east4"
+bgp-cidr="169.254.0.1/30"
+strongwan-bgp-ip="169.254.0.2"
+strongswan-subnet-cidr="10.2.0.0/24"

@@ -2,7 +2,7 @@
 resource "google_compute_instance" "test-vm" {
   name                      = "test-vm"
   machine_type              = "e2-medium"
-  zone                      = "us-east4-a"
+  zone                      = "${var.region}-a"
   allow_stopping_for_update = true
 
   boot_disk {
@@ -13,6 +13,10 @@ resource "google_compute_instance" "test-vm" {
         my_label = "value"
       }
     }
+  }
+
+  shielded_instance_config {
+    enable_secure_boot = true
   }
 
   network_interface {

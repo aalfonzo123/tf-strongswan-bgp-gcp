@@ -11,8 +11,8 @@ resource "google_compute_subnetwork" "strongswan-subnet" {
 }
 
 
-resource "google_compute_firewall" "allow-iap" {
-  name    = "allow-iap"
+resource "google_compute_firewall" "strongswan-vpc-allow-iap" {
+  name    = "strongswan-vpc-allow-iap"
   network = google_compute_network.strongswan-vpc.name
   direction = "INGRESS"
 

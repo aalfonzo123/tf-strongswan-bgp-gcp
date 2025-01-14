@@ -7,7 +7,7 @@ resource "google_compute_address" "strongswan-public-ip" {
 resource "google_compute_instance" "strongswan-vm" {
   name                      = "strongswan-vm"
   machine_type              = "e2-medium"
-  zone                      = "us-east4-a"
+  zone                      = "${var.region}-a"
   allow_stopping_for_update = true
 
 
@@ -22,6 +22,10 @@ resource "google_compute_instance" "strongswan-vm" {
         my_label = "value"
       }
     }
+  }
+
+  shielded_instance_config {
+    enable_secure_boot = true
   }
 
   network_interface {
